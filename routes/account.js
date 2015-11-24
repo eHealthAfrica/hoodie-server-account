@@ -23,6 +23,7 @@ function accountRoutes (server, options, next) {
     method: 'PUT',
     path: prefix + '/session/account',
     config: {
+      auth: false,
       validate: {
         headers: validations.bearerTokenHeaderForbidden,
         query: validations.accountQuery,
@@ -53,6 +54,9 @@ function accountRoutes (server, options, next) {
   var getAccountRoute = {
     method: 'GET',
     path: prefix + '/session/account',
+    config: {
+      auth: false
+    },
     handler: function (request, reply) {
       var sessionId = toBearerToken(request)
 
@@ -78,6 +82,9 @@ function accountRoutes (server, options, next) {
   var destroyAccountRoute = {
     method: 'DELETE',
     path: prefix + '/session/account',
+    config: {
+      auth: false
+    },
     handler: function (request, reply) {
       var sessionId = toBearerToken(request)
 

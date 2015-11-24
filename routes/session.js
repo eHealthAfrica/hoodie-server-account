@@ -21,6 +21,7 @@ function sessionRoutes (server, options, next) {
     method: 'PUT',
     path: prefix + '/session',
     config: {
+      auth: false,
       validate: {
         headers: validations.bearerTokenHeaderForbidden,
         query: validations.sessionQuery,
@@ -52,6 +53,7 @@ function sessionRoutes (server, options, next) {
     method: 'GET',
     path: prefix + '/session',
     config: {
+      auth: false,
       validate: {
         headers: validations.bearerTokenHeader,
         query: validations.sessionQuery,
@@ -77,6 +79,7 @@ function sessionRoutes (server, options, next) {
     method: 'DELETE',
     path: prefix + '/session',
     config: {
+      auth: false,
       validate: {
         headers: validations.bearerTokenHeader,
         query: validations.sessionQuery,
